@@ -1,0 +1,23 @@
+[
+  {
+    "categoriaId": "Tecnologia",
+    "descripcionCategoria": "Espacio para los tecnólogos más curiosos "
+  },
+  {
+    "categoriaId": "Deporte",
+    "descripcionCategoria": "Para los que no les gusta parar ni un segundo"
+  },
+  {
+    "categoriaId": "Musica",
+    "descripcionCategoria": "Para los amantes de la buena música, festivales y las noches locas"
+  },
+  {
+    "categoriaId": "Gastronomía",
+    "descripcionCategoria": "Para los más glotones"
+  },
+  {
+    "categoriaId": "Mascotas",
+    "descripcionCategoria": "Aquí encontrarás todo tipo de eventos para los amantes de los animales "
+  }
+
+]

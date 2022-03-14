@@ -1,0 +1,103 @@
+[
+  {
+    "eventoId": "Smart City Expo World Congress",
+    "fecha": "Noviembre de 2022",
+    "hora": "12:00",
+    "lugar": "Barcelona",
+    "descripcion": "Un debate de referencia que combina la innovación tecnológica y el sector de las Smart Cities desde 2011. El congreso de ciudades inteligentes vuelve a la Fira de Barcelona un año más, convertido en un punto de encuentro entre administraciones, empresas y emprendedores con la misión de empoderar a las ciudades, colectivizar la innovación urbana e impulsar nuevos proyectos en todo el mundo.",
+    "precio": "Free",
+    "categoriaId": "Tecnologia"
+  },
+  {
+    "eventoId": "Retail and Brand Experience World Congress",
+    "fecha": "Noviembre de 2022",
+    "hora": "12:00",
+    "lugar": "Barcelona",
+    "descripcion": "Los tres días de congreso estarán destinados a generar nuevos modelos de negocio, como no, tomando la innovación tecnológica como motor de cambio. Exprimiendo todo el potencial de una de las ciudades más atractivas para el sector minorista internacional, el evento buscará inspirar a los asistentes mediante conferencias, workshops, actividades y talleres para todos los gustos.",
+    "precio": "Free",
+    "categoriaId": "Tecnologia"
+  },
+  {
+    "eventoId": "Tomorrow.Mobility World Congress",
+    "fecha": "15 al 17 noviembre de 2022 ",
+    "hora": "12:00",
+    "lugar": "Barcelona",
+    "descripcion": "Del 25 al 17 de noviembre volverá el Tomorrow.Mobility World Congress organizado conjuntamente por la Fira de Barcelona y el EIT Urban Mobility. Esta asociación combina el evento con una plataforma digital abierta durante todo el año y dedicada al crecimiento de la movilidad sostenible.",
+    "precio": "Free",
+    "categoriaId": "Tecnologia"
+  },
+  {
+    "eventoId": "Congreso de Industria Conectada 4.0",
+    "fecha": "Octubre de 2022",
+    "hora": "12:00",
+    "lugar": "Valencia",
+    "descripcion": "El Congreso de Industria Conectada 4.0 está de aniversario. Este año celebra su quinta edición en el ámbito de los eventos de tecnología para 2022, tras reafirmarse como el espacio de referencia de la Industria 4.0 en España.  Aunque el programa completo aún no está disponible, los organizadores ya calientan motores y han anunciado que Argentina será el país invitado, tomando el testigo de Francia y de Corea del Sur. Asimismo, nos han avanzado su nueva apuesta por el formato híbrido visto el éxito de la pasada edición de la conferencia en la que su modalidad virtual congregó a 3.300 asistentes.",
+    "precio": "Free",
+    "categoriaId": "Tecnologia"
+  },
+  {
+    "eventoId": "EShow",
+    "fecha": "Julio de 2022 – Octubre de 2022",
+    "hora": "12:00",
+    "lugar": "Barcelona",
+    "descripcion": "Los eventos sobre ecommerce más ambiciosos del escenario nacional vuelven a Barcelona y a Madrid con una gran novedad y es que este año pueden presumir de nuevo fichaje, el FBAshow, el mayor congreso para vendedores de Amazon",
+    "precio": "Free",
+    "categoriaId": "Tecnologia"
+  },
+  {
+    "eventoId": "Digital Enterprise Show",
+    "fecha": "14 al 16 de junio de 2022",
+    "hora": "12:00",
+    "lugar": "Málaga",
+    "descripcion": "Consolidada como una de las citas más importantes en materia de economía y transformación digital, este 2022 se convertirá en escaparate de la máxima actualidad tecnológica. Por primera vez en el DES se analizará cómo el concepto de metaverso puede convertirse en una pieza clave de la nueva era de la economía y la digitalización.",
+    "precio": "Free",
+    "categoriaId": "Tecnologia"
+  },
+  {
+    "eventoId": "IoT Solutions World Congress",
+    "fecha": "10 al 12 de mayo de 2022",
+    "hora": "12:00",
+    "lugar": "Barcelona",
+    "descripcion": "“La nueva normalidad” es el tema central de esta nueva edición, que reconoce la Covid-19 como un punto de inflexión y que abordará los principales retos de innovación a los que se enfrentan las empresas a través de cinco ejes temáticos: seguridad, conectividad, optimización del negocio, inteligencia y experiencia de cliente.",
+    "precio": "Free",
+    "categoriaId": "Tecnologia"
+  },
+  {
+    "eventoId": "Advanced Factories",
+    "fecha": "29 al 31 de marzo de 2022 ",
+    "hora": "12:00",
+    "lugar": "Barcelona",
+    "descripcion": "Una cita obligada para quienes buscan alcanzar el máximo nivel de competitividad e innovación. El evento europeo líder en industria avanzada y digital reunirá a más de 17.000 profesionales y ofrecerá hasta 100 horas de conferencias sobre automatización, robótica, industria 4.0 y 3D printing, entre muchos otros topics.",
+    "precio": "Free",
+    "categoriaId": "Tecnologia"
+  },
+  {
+    "eventoId": "MWC22",
+    "fecha": "28 de febrero al 3 de marzo de 2022",
+    "hora": "12:00",
+    "lugar": "Barcelona",
+    "descripcion": "Del 28 de febrero al 3 de marzo volvemos a tener una cita con el Mobile World Congress. Uno de los eventos de tecnología de 2022 más influyente del mundo para la industria de la conectividad recupera su fecha habitual. ",
+    "precio": "Free",
+    "categoriaId": "Tecnologia"
+  },
+  {
+    "eventoId": "Torneo ping pong femenino",
+    "fecha": "28 de febrero al 3 de marzo de 2022",
+    "hora": "12:00",
+    "lugar": "Barcelona",
+    "descripcion": "descripcion",
+    "precio": "Free",
+    "categoriaId": "Deporte"
+  },
+  {
+    "eventoId": "Carrera solidaria",
+    "fecha": "28 de febrero al 3 de marzo de 2022",
+    "hora": "12:00",
+    "lugar": "Barcelona",
+    "descripcion": "descripcion ",
+    "precio": "Free",
+    "categoriaId": "Deporte"
+  }
+  
+    
+]

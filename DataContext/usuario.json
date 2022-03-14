@@ -1,0 +1,66 @@
+[
+  {
+    "usuarioId": "shandys",
+    "password": "123",
+    "email": "ziwasonesa-9358@yopmail.com",
+    "nombre": "Luciano",
+    "apellido": "Morilla"
+  },
+  {
+    "usuarioId": "veren",
+    "password": "123",
+    "email": "vedokihoda-8889@yopmail.com",
+    "nombre": "Luisa",
+    "apellido": "Perdomo"
+  },
+  {
+    "usuarioId": "mosquita",
+    "password": "123",
+    "email": "seinouproubegrou-4257@yopmail.com",
+    "nombre": "Maria",
+    "apellido": "Bastida"
+  },
+  {
+    "usuarioId": "firlock",
+    "password": "123",
+    "email": "seuroucavacro-4537@yopmail.com",
+    "nombre": "Vicent",
+    "apellido": "Serrano"
+  },
+  {
+    "usuarioId": "santosh",
+    "password": "123",
+    "email": "xougrejoudduwu-3521@yopmail.com",
+    "nombre": "Salma",
+    "apellido": "Zamorano"
+  },
+  {
+    "usuarioId": "pirofrita",
+    "password": "123",
+    "email": "tiproiffufriprou-3415@yopmail.com",
+    "nombre": "Moises",
+    "apellido": "Singh"
+  },
+  {
+    "usuarioId": "arkano",
+    "password": "123",
+    "email": "jauffappixudda-2019@yopmail.com",
+    "nombre": "Emilia",
+    "apellido": "Arnaiz"
+  },
+  {
+    "usuarioId": "jairo",
+    "password": "123",
+    "email": "premmoittefroummi-2301@yopmail.com",
+    "nombre": "Esteban",
+    "apellido": "Poveda"
+  },
+  {
+    "usuarioId": "ratata",
+    "password": "123",
+    "email": "gefrenussouza-1066@yopmail.com",
+    "nombre": "Federico",
+    "apellido": "Sevilla"
+  }
+
+  ]

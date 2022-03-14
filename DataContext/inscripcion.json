@@ -1,0 +1,58 @@
+[
+  {
+    "usuarioId": "pirofrita",
+    "eventoId": "Smart City Expo World Congress"
+  },
+  {
+    "usuarioId": "mosquita",
+    "eventoId": "Smart City Expo World Congress"
+  },
+  {
+    "usuarioId": "shandys",
+    "eventoId": "Smart City Expo World Congress"
+  },
+  {
+    "usuarioId": "shandys",
+    "eventoId": "Tomorrow.Mobility World Congress"
+  },
+  {
+    "usuarioId": "jairo",
+    "eventoId": "Tomorrow.Mobility World Congress"
+  },
+  {
+    "usuarioId": "arkano",
+    "eventoId": "Tomorrow.Mobility World Congress"
+  },
+  {
+    "usuarioId": "arkano",
+    "eventoId": "Congreso de Industria Conectada 4.0"
+  },
+  {
+    "usuarioId": "santosh",
+    "eventoId": "Tomorrow.Mobility World Congress"
+  },
+  {
+    "usuarioId": "ratata",
+    "eventoId": "Digital Enterprise Show"
+  },
+  {
+    "usuarioId": "firlock",
+    "eventoId": "Digital Enterprise Show"
+  },
+  {
+    "usuarioId": "santosh",
+    "eventoId": "Digital Enterprise Show"
+  },
+  {
+    "usuarioId": "shandys",
+    "eventoId": "Digital Enterprise Show"
+  },
+  {
+    "usuarioId": "jairo",
+    "eventoId": "Digital Enterprise Show"
+  },
+  {
+    "usuarioId": "veren",
+    "eventoId": "IoT Solutions World Congress"
+  }
+]
