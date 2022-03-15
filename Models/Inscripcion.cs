@@ -13,6 +13,7 @@ namespace MeteDatosEventos.Models
         public int inscripcionId { get; set; }
         public string usuarioId { get; set; }
         public string eventoId { get; set; }
+       // public int valoracion { get; set; }
 
 
         public override string ToString()

@@ -30,5 +30,6 @@ namespace MeteDatosEventos.Data
         public DbSet<Comentario> Comentarios { get; set; }
 
 
+
     }
 }

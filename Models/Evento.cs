@@ -24,6 +24,5 @@ namespace MeteDatosEventos.Models
             return String.Format("   |{0,15}     | {1,15}     |{2,40}     |{3,20}     |{4,55}     |{5,12}  |", lugar, hora, fecha,categoriaId , eventoId , precio);
 
         }
-
     }
 }

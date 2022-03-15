@@ -16,6 +16,7 @@ namespace MeteDatosEventos.Models
         public string nombre { get; set; }
         public string apellido {get;set;}
 
+
         
         public override string ToString()
         {

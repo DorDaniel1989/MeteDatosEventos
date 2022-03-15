@@ -60,7 +60,8 @@
     "password": "123",
     "email": "gefrenussouza-1066@yopmail.com",
     "nombre": "Federico",
-    "apellido": "Sevilla"
+    "apellido": "Sevilla",
+    "profileImage" : ""
   }
 
   ]

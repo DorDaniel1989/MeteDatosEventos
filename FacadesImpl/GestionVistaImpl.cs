@@ -23,6 +23,7 @@ namespace MeteDatosEventos.FacadesImpl
         string lineaBajaCabecera = "   |_____ ________________________________________________________________________________________________________________________________________________________________________________________|";
         string espacioMenu = "                                   ";
         string espacio = "               ";
+        GestorMenus gestorMenus ;
         //METODOS
         public void mostrarMenuPrincipal()
         {

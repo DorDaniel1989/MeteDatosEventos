@@ -6,7 +6,8 @@
     "lugar": "Barcelona",
     "descripcion": "Un debate de referencia que combina la innovación tecnológica y el sector de las Smart Cities desde 2011. El congreso de ciudades inteligentes vuelve a la Fira de Barcelona un año más, convertido en un punto de encuentro entre administraciones, empresas y emprendedores con la misión de empoderar a las ciudades, colectivizar la innovación urbana e impulsar nuevos proyectos en todo el mundo.",
     "precio": "Free",
-    "categoriaId": "Tecnologia"
+    "categoriaId": "Tecnologia",
+    "imagen" : ""
   },
   {
     "eventoId": "Retail and Brand Experience World Congress",
@@ -15,13 +16,13 @@
     "lugar": "Barcelona",
     "descripcion": "Los tres días de congreso estarán destinados a generar nuevos modelos de negocio, como no, tomando la innovación tecnológica como motor de cambio. Exprimiendo todo el potencial de una de las ciudades más atractivas para el sector minorista internacional, el evento buscará inspirar a los asistentes mediante conferencias, workshops, actividades y talleres para todos los gustos.",
     "precio": "Free",
-    "categoriaId": "Tecnologia"
+    "categoriaId": "Tecnologia",
   },
   {
     "eventoId": "Tomorrow.Mobility World Congress",
-    "fecha": "15 al 17 noviembre de 2022 ",
+    "fecha": "15/11/ 17 noviembre de 2022 ",
     "hora": "12:00",
-    "lugar": "Barcelona",
+    "localizacion": "barcelona,fira barcelona",
     "descripcion": "Del 25 al 17 de noviembre volverá el Tomorrow.Mobility World Congress organizado conjuntamente por la Fira de Barcelona y el EIT Urban Mobility. Esta asociación combina el evento con una plataforma digital abierta durante todo el año y dedicada al crecimiento de la movilidad sostenible.",
     "precio": "Free",
     "categoriaId": "Tecnologia"

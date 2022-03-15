@@ -21,7 +21,43 @@ namespace MeteDatosEventos
     {
         static void Main(string[] args)
         {
-            //Esto pretende ser un objeto singleton
+
+
+string prompt =@"▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄        ▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄ 
+                ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌      ▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌
+                ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌     ▐░▌░▌   ▐░▐░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ 
+                ▐░▌          ▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌▐░▌ ▐░▌▐░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░▌          
+                ▐░▌ ▄▄▄▄▄▄▄▄ ▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌ ▐░▐░▌ ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄ 
+                ▐░▌▐░░░░░░░░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌  ▐░▌  ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌
+                ▐░▌ ▀▀▀▀▀▀█░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌   ▀   ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀ 
+                ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░▌          
+                ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌     ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ 
+                ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌      ▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌
+                 ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀        ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀";
+            string[] opcionesMenu = new string[] { "CARGAR DATOS", "VER CATEGORIAS", "VER USUARIOS", "VER COMENTARIOS", "VER EVENTOS", "VER INSCRIPCIONES", "NUMERO DE COMENTARIOS POR CATEGORIA", "NUMERO DE COMENTARIOS DE UN EVENTO", "NUMERO DE COMENTARIOS DE UN USUARIO", "VER COMENTARIOS DE UN USUARIO A ELEGIR", "VER COMENTARIOS DE UN EVENTO A ELEGIR", "AÑADIR COMENTARIO A UN EVENTO", "SALIR" };
+      
+
+         //   ConsoleKeyInfo teclaPresionada = Console.ReadKey();
+
+            //if (teclaPresionada.Key == ConsoleKey.Enter)
+            //{
+            //    Console.WriteLine("Has presionado ENTER");
+            //}
+            //else if (teclaPresionada.Key == ConsoleKey.UpArrow)
+            //{
+            //    Console.WriteLine("Has presionado UP ARROW");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Has presionado otra tecla");
+
+            //}
+
+            //Console.WriteLine("Press any key to exit...");
+            //Console.ReadKey(true);
+
+
+
             ApiContext conexionBD = new ApiContext();
 
 
@@ -34,32 +70,25 @@ namespace MeteDatosEventos
             GestionComentarios gestorComentarios = new GestionComentariosImpl(conexionBD);
             GestionInscripciones gestorInscripciones = new GestionInscripcionesImpl(conexionBD);
 
-            string[] flameo = new string[] { "OPERACION NO PERMITIDA" ,"QUE NO PUEDES HACER ESO " ,"PERO A TI QUE TE PASA, METE UN NUMERO","METE UN NUMERO IMBECIL","ESTAS PONIENDO A PRUEBA MI PACIENCIA..." ,"HARE COMO SI FUERAS RETRASADO Y VOLVERE A EMPEZAR..¿VALE?" };
-            int i =0; // indice para array de flameo
+            GestorMenus mainMenu = new GestorMenus(prompt, opcionesMenu);
+
+
+            string[] flameo = new string[] { "OPERACION NO PERMITIDA", "QUE NO PUEDES HACER ESO ", "PERO A TI QUE TE PASA, METE UN NUMERO", "METE UN NUMERO IMBECIL", "ESTAS PONIENDO A PRUEBA MI PACIENCIA...", "HARE COMO SI FUERAS RETRASADO Y VOLVERE A EMPEZAR..¿VALE?" };
+            int i = 0; // indice para array de flameo
             var bucle = true;
             //INICIAMOS LA APLICACION
+
+
             while (bucle)
             {
-                gestorVistas.mostrarMenuPrincipal();
-                //Le pedimos al usuario que teclee la opcion deseada
-                var opcion = Console.ReadLine();
-                try
-                {
-                    ejecutarOpcion(Int32.Parse(opcion));
-                    i = 0 ; // reiniciamos variable de flameo
-                }
-                catch
-                {
-                    Console.WriteLine(flameo[i] , Color.Red);
-                    Console.ReadLine();
-                    i++; // para cambiar de mensaje si sigue fallando en la entrada
-                    if (i == flameo.Length) i = 0; // para no pasarnos de rosca
-                    
-                }
+                int indiceSeleccionado = mainMenu.Run();
+                ejecutarOpcion(indiceSeleccionado);
+
             }
 
-            //La conexion se cierra sola?¿
-            //conexionBD.close();
+      
+
+
 
             Console.WriteAscii("HASTA LA VISTA");
 
@@ -67,7 +96,7 @@ namespace MeteDatosEventos
             {
                 if (opcion > 12)
                 {
-                    Console.WriteLine("DE MOMENTO HAY TANTAS OPCIONES" , Color.Red);
+                    Console.WriteLine("DE MOMENTO HAY TANTAS OPCIONES", Color.Red);
                     Console.ReadLine();
                     return;
                 }
@@ -83,10 +112,10 @@ namespace MeteDatosEventos
                     case 7: gestorVistas.mostrarNumComentariosDeUnEvento(gestorComentarios.getNumComentariosDeUnEvento()); return;
                     case 8: gestorVistas.mostrarNumComentariosDeUnUsuario(gestorComentarios.getNumComentariosDeUnUsuario()); return;
                     case 9: gestorVistas.mostrarComentarios(gestorComentarios.getComentariosDeUnUsuario()); return;
-                    case 10:gestorVistas.mostrarComentarios(gestorComentarios.getComentariosDeUnEvento()); return;
+                    case 10: gestorVistas.mostrarComentarios(gestorComentarios.getComentariosDeUnEvento()); return;
                     case 11: gestorComentarios.añadirComentario(); return;
                     case 12: bucle = false; return;
-                    
+
 
                 }
 
