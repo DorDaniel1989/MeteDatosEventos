@@ -38,47 +38,51 @@ namespace MeteDatosEventos.DaoImpl
             }
 
             Console.WriteLine("Elige usuario" ,Color.GreenYellow);
-            string opcionUsuario = Console.ReadLine();
+            int opcionUsuario = Int32.Parse(Console.ReadLine());
+            Console.Beep(600, 90);
 
 
             Console.Clear();
             //MOSTRAMOS LAS CATEGORIAS POR PANTALLA
             Console.WriteAscii("CATEGORIAS", Color.LightGoldenrodYellow);
-            var listaCategorias = conexionBD.Categorias.OrderBy(o => o.categoriaId).ToList();
+            var listaCategorias = conexionBD.Categorias.OrderBy(o => o.CategoriaId).ToList();
             var k = 1;
 
             foreach (Categoria cat in listaCategorias)
             {
-                Console.WriteLine(k + " -" + cat.categoriaId);
+                Console.WriteLine(k + " -" + cat.CategoriaId);
                 k++;
             }
 
             Console.WriteLine("Elige categoria", Color.GreenYellow);
-            string opcionCategoria = Console.ReadLine();
+            int opcionCategoria = Int32.Parse(Console.ReadLine());
+            Console.Beep(600, 90);
             Console.Clear();
             //MOSTRAMOS LOS EVENTOS FILTRADOS POR CATEGORIAS
             Console.WriteAscii("EVENTOS", Color.LightGoldenrodYellow);
               
-            var listaEventos = conexionBD.Eventos.OrderBy(o => o.eventoId).Where(w=>w.categoriaId==listaCategorias[Int32.Parse(opcionCategoria) -1].categoriaId).ToList();
+            var listaEventos = conexionBD.Eventos.OrderBy(o => o.EventoId).Where(w=>w.CategoriaId==listaCategorias[opcionCategoria -1].CategoriaId).ToList();
             var x = 1;
 
             foreach (Evento ev in listaEventos)
             {
-                Console.WriteLine(x + " -" + ev.eventoId);
+                Console.WriteLine(x + " -" + ev.EventoId);
                 x++;
             }
 
             Console.WriteLine("Elige evento en el que comentar" , Color.GreenYellow);
-            string opcionEvento = Console.ReadLine();
+            int opcionEvento = Int32.Parse(Console.ReadLine());
+            Console.Beep(600, 90);
             Console.WriteLine("Introduce el comentario");
             string comentarioTxt = Console.ReadLine();
+            Console.Beep(600, 90);
             Comentario comentario= new Comentario();
              
-            comentario.usuarioId = listaUsuarios[Int32.Parse(opcionUsuario) - 1 ].usuarioId;
-            comentario.eventoId = listaEventos[Int32.Parse(opcionEvento) - 1 ].eventoId;
-            comentario.comentario = comentarioTxt;
-            comentario.fechaComentario = "Hoy";
-            comentario.categoriaId = listaCategorias[Int32.Parse(opcionCategoria) - 1].categoriaId;
+            comentario.UsuarioId = listaUsuarios[opcionUsuario - 1 ].usuarioId;
+            comentario.EventoId = listaEventos[opcionEvento - 1 ].EventoId;
+            comentario.ComentarioTxt = comentarioTxt;
+            comentario.FechaComentario = "Hoy";
+            comentario.CategoriaId = listaCategorias[opcionCategoria - 1].CategoriaId;
 
             try
             {
@@ -101,38 +105,38 @@ namespace MeteDatosEventos.DaoImpl
 
 
         }
-        //Investigar sobre como devolver una lista de tipo anonimo mejor que un string.
+      
         public string getNumDeComentariosDeUnEvento()
         {
 
-            var listaEventos = conexionBD.Eventos.OrderBy(o => o.eventoId).ToList();
+            var listaEventos = conexionBD.Eventos.OrderBy(o => o.EventoId).ToList();
             var i = 1;
 
             foreach (Evento eve in listaEventos)
             {
-                Console.WriteLine(i + " -" + eve.eventoId);
+                Console.WriteLine(i + " -" + eve.EventoId);
                 i++;
             }
 
             Console.WriteLine("Elige el evento");
-            string opcion = Console.ReadLine();
-
-            var resul = conexionBD.Comentarios.GroupBy(g => g.eventoId).Select(s => new
+            int opcion = Int32.Parse(Console.ReadLine());
+            Console.Beep(600, 90);
+            var resul = conexionBD.Comentarios.GroupBy(g => g.EventoId).Select(s => new
             {
                 evento = s.Key,
                 cantidad = s.Count().ToString()
 
-            }).Where(w => w.evento == listaEventos[Int32.Parse(opcion) -1].eventoId).ToList();
+            }).Where(w => w.evento == listaEventos[opcion -1].EventoId).ToList();
 
             //Parseamos a string la lista anonima que devuelve la consulta
             string resulPareseado="";
             try
             {
-                resulPareseado= String.Format("|{0,30}|{1,24}|", resul[0].evento, resul[0].cantidad) ;
+                resulPareseado= String.Format("   |{0,30}|{1,24}|", resul[0].evento, resul[0].cantidad) ;
             }
             catch(Exception e)
             {
-                Console.WriteLine("No hay comentarios para mostrar",Color.Red);
+                resulPareseado = "       SIN   COMENTARIOS   " ; 
             }
 
             return resulPareseado;
@@ -145,6 +149,7 @@ namespace MeteDatosEventos.DaoImpl
         {
             
                 var listaUsuarios = conexionBD.Usuarios.OrderBy(o => o.usuarioId).ToList();
+                string resulPareseado="";
                 var i = 1;
 
                 foreach (Usuario us in listaUsuarios)
@@ -154,18 +159,29 @@ namespace MeteDatosEventos.DaoImpl
                 }
 
                 Console.WriteLine("Elige usuario");
-                string opcion = Console.ReadLine();
+                int opcion = Int32.Parse(Console.ReadLine());
+                Console.Beep(600, 90);
+              
 
+                var resul = conexionBD.Comentarios.GroupBy(g => g.UsuarioId).Select(s => new
+                    {
+                        usuario = s.Key,
+                        cantidad = s.Count().ToString()
 
-                var resul = conexionBD.Comentarios.GroupBy(g => g.usuarioId).Select(s => new
+                    }).Where(w => w.usuario == listaUsuarios[opcion - 1].usuarioId).ToList();
+
+                //Parseamos a string la lista anonima que devuelve la consulta
+                try
                 {
-                    usuario = s.Key,
-                    cantidad = s.Count().ToString()
+                    resulPareseado = String.Format("   |{0,30}|{1,24}|", resul[0].usuario, resul[0].cantidad);
+                }catch(Exception ex) {
 
-                }).Where(w => w.usuario == listaUsuarios[Int32.Parse(opcion) - 1].usuarioId).ToList();
+                resulPareseado = "       SIN   COMENTARIOS   ";
 
-               //Parseamos a string la lista anonima que devuelve la consulta
-                var resulPareseado = resul[0].usuario + "  " + resul[0].cantidad;
+                }
+
+             
+
                 return resulPareseado;
             
 
@@ -180,24 +196,25 @@ namespace MeteDatosEventos.DaoImpl
 
         public List<Comentario> getComentariosDeEvento()
         {
-            var listaEventos = conexionBD.Eventos.OrderBy(o => o.eventoId).ToList();
+            var listaEventos = conexionBD.Eventos.OrderBy(o => o.EventoId).ToList();
             var i = 1;
 
             foreach (Evento eve in listaEventos)
             {
                 Console.Write((i + " -" ) , Color.GreenYellow);
-                Console.Write(eve.eventoId , Color.Orange);
+                Console.Write(eve.EventoId , Color.Orange);
                 Console.WriteLine();
                 i++;
             }
 
             Console.WriteLine("Elige un evento" , Color.GreenYellow);
             string evento = Console.ReadLine();
+            Console.Beep(600, 90);
 
             //Console.WriteLine(Int32.Parse(evento));
             //Console.WriteLine(listaEventos[Int32.Parse(evento)-1].eventoId);
 
-            var resul = conexionBD.Comentarios.Where(w => w.eventoId == listaEventos[Int32.Parse(evento) - 1].eventoId).Select(s => s).ToList();
+            var resul = conexionBD.Comentarios.Where(w => w.EventoId == listaEventos[Int32.Parse(evento) - 1].EventoId).Select(s => s).ToList();
             return resul;
             
         }
@@ -217,31 +234,66 @@ namespace MeteDatosEventos.DaoImpl
 
                 Console.WriteLine("Elige usuario");
                 string user = Console.ReadLine();
+                Console.Beep(600, 90);
 
                 //Consulta
-                var resul = conexionBD.Comentarios.Where(w => w.usuarioId == listaUsuarios[Int32.Parse(user) - 1].usuarioId)
-                                                  .Select(s =>s) 
-                                                  .ToList();
+                var resul = conexionBD.Comentarios.Where(w => w.UsuarioId == listaUsuarios[Int32.Parse(user) - 1].usuarioId)
+                                                      .Select(s =>s) 
+                                                      .ToList();
                 return resul;
             
             
         }
 
-        //El tipo de dato IEnumerabe<dynamic> es porque devuelve una lista creada al vuelo
         public IEnumerable<dynamic> getNumComentariosPorCategoria()
         {
             
-            var resul = conexionBD.Comentarios.GroupBy(g => g.categoriaId)
+            var resul = conexionBD.Comentarios.GroupBy(g => g.CategoriaId)
                                               .Select(s => new
                                                             {
                                                             categoria = s.Key,
                                                             cantidadComentarios = s.Count()
-                                                            })          
+                                                            }).OrderByDescending(o=>o.cantidadComentarios)          
                                               .ToList();
               
             return resul ;
             
         }
 
+        public IEnumerable<dynamic> getNumDeComentariosUsuarioAgrupados()
+        {
+            var resul = conexionBD.Comentarios.GroupBy(g => g.UsuarioId)
+                                             .Select(s => new
+                                             {
+                                                 usuario = s.Key,
+                                                 cantidadComentarios = s.Count()
+                                             }).OrderByDescending(o=>o.cantidadComentarios)
+                                             .ToList();
+
+            return resul;
+        }
+
+        public IEnumerable<dynamic> getNumDeComentariosEventosAgrupados()
+        {
+            var resul = conexionBD.Comentarios.GroupBy(g => g.EventoId)
+                                               .Select(s => new
+                                               {
+                                                   evento = s.Key,
+                                                   cantidadComentarios = s.Count()
+                                               }).OrderByDescending(o=>o.cantidadComentarios)
+                                               .ToList();
+
+            return resul;
+        }
+
+        public void deleteComentario(string comentarioId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void updateComentario(string comentario)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

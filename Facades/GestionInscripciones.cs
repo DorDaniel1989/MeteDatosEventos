@@ -11,6 +11,10 @@ namespace MeteDatosEventos.Facades
     {
         List<Inscripcion> getInscripciones();
 
+        IEnumerable<dynamic> getValoracionMediaDeUsuariosAgrupados();
+        IEnumerable<dynamic> getValoracionMediaDeEventosAgrupados();
+        string getValoracionMediaDeUnUsuario();
+
         //Añadir funciones crud de inscripciones
     }
 }

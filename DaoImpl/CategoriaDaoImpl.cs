@@ -21,6 +21,11 @@ namespace MeteDatosEventos.DaoImpl
             this.conexionBD = conexionBD;
         }
 
+        public void deleteCategoria(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Categoria getCategoria(string id)
         {
             throw new NotImplementedException();
@@ -31,6 +36,16 @@ namespace MeteDatosEventos.DaoImpl
 
             categorias = conexionBD.Categorias.ToList();
             return categorias;
+        }
+
+        public void saveCategoria(Categoria categoria)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void updateCategoria(int id, Categoria categoria)
+        {
+            throw new NotImplementedException();
         }
     }
 }

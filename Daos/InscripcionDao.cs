@@ -11,5 +11,14 @@ namespace MeteDatosEventos.Daos
     {
         Inscripcion getInscripcion();
         List<Inscripcion> getInscripciones();
+        void saveInscripcion(Inscripcion inscripcion);
+        void deleteInscripcion(Inscripcion inscripcion);
+        void updateInscripcion(Inscripcion inscripcion);
+
+        string getValoracionMediaDeUnUsuario();
+        IEnumerable<dynamic> getValoracionMediaDeUsuariosAgrupados();
+
+        string getValoracionMediaDeUnEvento();
+        IEnumerable<dynamic> getValoracionMediaDeEventosAgrupados();
     }
 }

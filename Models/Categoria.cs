@@ -10,12 +10,11 @@ namespace MeteDatosEventos.Models
     {
         
        // public string categoriaId {get;set;}
-        public string categoriaId { get; set; }
-        public string descripcionCategoria { get; set; }
+        public string CategoriaId { get; set; }
+        public string Descripcion_categoria { get; set; }
         public override string ToString()
         {
-            return String.Format("   |{0,20}     |{1,80}     |", categoriaId, descripcionCategoria);
-          
+            return String.Format("   |{0,20}     |{1,80}     |", CategoriaId, Descripcion_categoria);
         }
     }
 }

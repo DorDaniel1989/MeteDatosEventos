@@ -23,5 +23,20 @@ namespace MeteDatosEventos.FacadesImpl
         {
             return inscripcionDao.getInscripciones();
         }
+
+        public IEnumerable<dynamic> getValoracionMediaDeEventosAgrupados()
+        {
+            return inscripcionDao.getValoracionMediaDeEventosAgrupados();
+        }
+
+        public string getValoracionMediaDeUnUsuario()
+        {
+            return inscripcionDao.getValoracionMediaDeUnUsuario();
+        }
+
+        public IEnumerable<dynamic> getValoracionMediaDeUsuariosAgrupados()
+        {
+            return inscripcionDao.getValoracionMediaDeUsuariosAgrupados();
+        }
     }
 }

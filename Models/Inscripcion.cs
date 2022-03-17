@@ -10,15 +10,16 @@ namespace MeteDatosEventos.Models
     public class Inscripcion
     {
     
-        public int inscripcionId { get; set; }
-        public string usuarioId { get; set; }
-        public string eventoId { get; set; }
-       // public int valoracion { get; set; }
+        public int InscripcionId { get; set; }
+        public string UsuarioId { get; set; }
+        public string EventoId { get; set; }
+
+        public int Valoracion { get; set; }
 
 
         public override string ToString()
         {
-            return String.Format("   |{0,15}   |{1,14}   |{2,55}   |", inscripcionId, usuarioId, eventoId);
+            return String.Format("   |{0,15}   |{1,14}   |{2,55}   |{3,15}   |", InscripcionId, UsuarioId, EventoId , Valoracion);
            
         }
     }

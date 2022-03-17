@@ -10,6 +10,9 @@ namespace MeteDatosEventos.Daos
     interface CategoriaDao
     {
         Categoria getCategoria(string id);
+        void saveCategoria(Categoria categoria);
+        void deleteCategoria(string id);
+        void updateCategoria(int id, Categoria categoria);
         List<Categoria> getCategorias();
 
     }

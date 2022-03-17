@@ -31,7 +31,19 @@ namespace MeteDatosEventos.DaoImpl
             throw new NotImplementedException();
         }
 
-       
-       
+        public void saveUsuario(Usuario usuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void deleteUsuario(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void updateUsuario(Usuario usuario)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

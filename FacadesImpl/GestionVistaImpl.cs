@@ -9,6 +9,7 @@ using Console = Colorful.Console;
 
 namespace MeteDatosEventos.FacadesImpl
 {
+
     class GestionVistaImpl : GestionVista
     {
         //CABECERAS DE LAS TABLAS QUE MOSTRAMOS POR PANTALLA
@@ -16,11 +17,16 @@ namespace MeteDatosEventos.FacadesImpl
         string cabeceraCategorias                     = String.Format("   |{0,20}     |{1,80}     |", "CATEGORIA", "DESRCIPCION" );
         string cabeceraComentarios                    = String.Format("   |{0,15}   |{1,20}   |{2,20}   |{3,55}   |{4,60}    |", "USUARIO", "FECHA", "CATEGORIA", "EVENTO", "COMENTARIO");
         string cabeceraNumComentariosPorCategoria     = String.Format("   |{0,25}   |{1,20}   |", "CATEGORIA", " Nº DE COMENTARIOS");
+        string cabeceraNumComentariosPorEvento        = String.Format("   |{0,60}   |{1,20}   |", "EVENTO", " Nº DE COMENTARIOS");
+        string cabeceraNumComentariosPorUsuario       = String.Format("   |{0,10}   |{1,20}   |", "USUARIO", " Nº DE COMENTARIOS");
+        string cabeceraValoracionMediaPorUsuario      = String.Format("   |{0,10}   |{1,10}   |", "USUARIO" ,"MEDIA DE VALORACION");
+        string cabeceraValoracionMediaPorEvento       = String.Format("   |{0,60}   |{1,20}   |", "EVENTO", "MEDIA DE VALORACION");
         string cabeceraCantidadDeComentariosDeUsuario = String.Format("   |{0,15}|{1,20}|", "USUARIO", " Nº DE COMENTARIOS");
         string cabeceraInscripciones                  = String.Format("   |{0,15}   |{1,14}   |{2,55}   |", " ID INSCRIPCION", "USUARIO", "EVENTO");
-        string cabeceraEvento                         = String.Format("   |{0,15}     | {1,15}     |{2,40}     |{3,20}     |{4,55}     |{5,12}  |", "LUGAR", "HORA", "FECHA","CATEGORIA", "EVENTO","PRECIO");
+        string cabeceraEventos                        = String.Format("   |{0,60}     | {1,18}     |{2,15}     |{3,15}     |{4,50}     |{5,15}     |", "EVENTO", "CATEGORIA", "PRECIO","HORA INICIO", "LOCALIZACION","FECHA");
+        string cabeceraLocalizaciones                 = String.Format("   |{0,60}     | {1,30}     |{2,30}     |", "LOCALIZACION", "LATITUD", "LONGITUD");
         string cabeceraCantidadDeComentariosEnEvento  = String.Format("   |{0,30}|{1,24}|", "EVENTO", "CANTIDAD DE COMENTARIOS");
-        string lineaBajaCabecera = "   |_____ ________________________________________________________________________________________________________________________________________________________________________________________|";
+        string lineaBajaCabecera = "   |______________________________________________________________________________________________________________________________________________________________________________________________|";
         string espacioMenu = "                                   ";
         string espacio = "               ";
         GestorMenus gestorMenus ;
@@ -29,7 +35,7 @@ namespace MeteDatosEventos.FacadesImpl
         {
             Console.Clear();
             //Valores de las opciones del menu
-            string[] opcionesMenu = new string[] { "CARGAR DATOS", "VER CATEGORIAS", "VER USUARIOS", "VER COMENTARIOS", "VER EVENTOS", "VER INSCRIPCIONES", "NUMERO DE COMENTARIOS POR CATEGORIA", "NUMERO DE COMENTARIOS DE UN EVENTO", "NUMERO DE COMENTARIOS DE UN USUARIO", "VER COMENTARIOS DE UN USUARIO A ELEGIR", "VER COMENTARIOS DE UN EVENTO A ELEGIR", "AÑADIR COMENTARIO A UN EVENTO", "SALIR" };
+            string[] opcionesMenu = new string[] { "CARGAR DATOS", "VER CATEGORIAS", "VER USUARIOS", "VER COMENTARIOS", "VER EVENTOS", "VER LOCALIZACIONES", "VER INSCRIPCIONES", "NUMERO DE COMENTARIOS POR CATEGORIA", "NUMERO DE COMENTARIOS DE UN EVENTO", "NUMERO DE COMENTARIOS DE UN USUARIO", "VER COMENTARIOS DE UN USUARIO A ELEGIR", "VER COMENTARIOS DE UN EVENTO A ELEGIR", "AÑADIR COMENTARIO A UN EVENTO", "SALIR" };
            
            
             //Recorremos los valores del array para imprimir el menu principal
@@ -49,11 +55,11 @@ namespace MeteDatosEventos.FacadesImpl
 
         public void mostrarUsuarios(List<Usuario> listaObjetos)
         {
-            Console.Clear();                                        //Limpia la consola
-            Console.WriteAscii(espacio+"Usuarios", Color.Yellow);   //Titulo centrado de la tabla
-            Console.WriteLine(cabeceraUsuarios, Color.Goldenrod);   //Cabecera de la tabla
-            Console.WriteLine(lineaBajaCabecera, Color.Goldenrod);  //Linea  baja de separacion de la cabecera
-            imprimirRegistros(listaObjetos);                        //imprime el resto de registros de la lista
+            Console.Clear();                                        
+            Console.WriteAscii(espacio+"Usuarios", Color.Yellow);   
+            Console.WriteLine(cabeceraUsuarios, Color.Goldenrod);   
+            Console.WriteLine(lineaBajaCabecera, Color.Goldenrod);  
+            imprimirRegistros(listaObjetos);                        
           
         }
 
@@ -91,10 +97,20 @@ namespace MeteDatosEventos.FacadesImpl
         {
             Console.Clear();
             Console.WriteAscii(espacio+"Eventos", Color.Yellow);
-            Console.WriteLine(cabeceraEvento, Color.Goldenrod);
+            Console.WriteLine(cabeceraEventos, Color.Goldenrod);
             Console.WriteLine(lineaBajaCabecera, Color.Goldenrod);
             imprimirRegistros(listaObjetos);
             
+        }
+
+
+        public void mostrarLocalizaciones(List<Localizacion> listaObjetos)
+        {
+            Console.Clear();
+            Console.WriteAscii(espacio + "Localizaciones", Color.Yellow);
+            Console.WriteLine(cabeceraLocalizaciones, Color.Goldenrod);
+            Console.WriteLine(lineaBajaCabecera, Color.Goldenrod);
+            imprimirRegistros(listaObjetos);
         }
 
         public void mostrarNumComentariosPorCategoria(IEnumerable<dynamic> listaObjetos)
@@ -134,12 +150,99 @@ namespace MeteDatosEventos.FacadesImpl
             Console.ReadLine();
         }
 
+    
+        public void mostrarNumComentariosPorEvento(IEnumerable<dynamic> listaObjetos)
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine(cabeceraNumComentariosPorEvento, Color.Goldenrod);
+            Console.WriteLine(lineaBajaCabecera, Color.Goldenrod);
+            foreach (var objeto in listaObjetos)
+            {
+                Console.WriteLine("   " + "|                                                                                                                                                                                                   |", Color.GreenYellow);
+                var registro = String.Format("   |{0,60}   |{1,20}   |", objeto.evento, objeto.cantidadComentarios);
+                Console.WriteLine(registro, Color.GreenYellow);
+                Console.WriteLine(lineaBajaCabecera, Color.GreenYellow);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Pulsa enter para regresar al menu principal ");
+            Console.ReadLine();
+        }
+
+        public void mostrarNumComentariosPorUsuario(IEnumerable<dynamic> listaObjetos)
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine(cabeceraNumComentariosPorUsuario, Color.Goldenrod);
+            Console.WriteLine(lineaBajaCabecera, Color.Goldenrod);
+            foreach (var objeto in listaObjetos)
+            {
+                Console.WriteLine("   " + "|                                                                                                                                                                                                   |", Color.GreenYellow);
+                var registro = String.Format("   |{0,10}   |{1,20}   |", objeto.usuario, objeto.cantidadComentarios);
+                Console.WriteLine(registro, Color.GreenYellow);
+                Console.WriteLine(lineaBajaCabecera, Color.GreenYellow);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Pulsa enter para regresar al menu principal ");
+            Console.ReadLine();
+        }
+
         public void imprimirRegistros(IEnumerable registros)
         {
             foreach (var objeto in registros)
-            {  
+            {
                 //Console.WriteLine("   " + "|                                                                                                                                                                                                   |", Color.GreenYellow);
-                Console.WriteLine(objeto.ToString() ,Color.GreenYellow);
+                Console.WriteLine(objeto.ToString(), Color.GreenYellow);
+                Console.WriteLine(lineaBajaCabecera, Color.GreenYellow);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Pulsa enter para regresar al menu principal ");
+            Console.ReadLine();
+        }
+
+        public void mostrarValoracionMediaDeUnUsuario(string data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void mostrarValoracionMediaPorUsuario(IEnumerable<dynamic> listaObjetos)
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine(cabeceraValoracionMediaPorUsuario, Color.Goldenrod);
+            Console.WriteLine(lineaBajaCabecera, Color.Goldenrod);
+            foreach (var objeto in listaObjetos)
+            {
+                Console.WriteLine("   " + "|                                                                                                                                                                                                   |", Color.GreenYellow);
+                var registro = String.Format("   |{0,10}   |{1,10}   |", objeto.usuario, objeto.valoracionMedia);
+                Console.WriteLine(registro, Color.GreenYellow);
+                Console.WriteLine(lineaBajaCabecera, Color.GreenYellow);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Pulsa enter para regresar al menu principal ");
+            Console.ReadLine();
+        }
+
+        public void mostrarValoracionMediaDeUnEvento(string data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void mostrarValoracionMediaPorEvento(IEnumerable<dynamic> listaObjetos)
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine(cabeceraValoracionMediaPorEvento, Color.Goldenrod);
+            Console.WriteLine(lineaBajaCabecera, Color.Goldenrod);
+            foreach (var objeto in listaObjetos)
+            {
+                Console.WriteLine("   " + "|                                                                                                                                                                                                   |", Color.GreenYellow);
+                var registro = String.Format("   |{0,60}   |{1,20}   |", objeto.evento, objeto.valoracionMedia);
+                Console.WriteLine(registro, Color.GreenYellow);
                 Console.WriteLine(lineaBajaCabecera, Color.GreenYellow);
             }
             Console.WriteLine();

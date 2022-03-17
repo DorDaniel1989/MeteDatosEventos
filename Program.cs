@@ -14,6 +14,8 @@ using Console = Colorful.Console;
 using System.Drawing;
 using MeteDatosEventos.Facades;
 using MeteDatosEventos.FacadesImpl;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace MeteDatosEventos
 {
@@ -22,8 +24,8 @@ namespace MeteDatosEventos
         static void Main(string[] args)
         {
 
-
-string prompt =@"▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄        ▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄ 
+            Console.Title = "GOD MODE CONSOLE";
+            string prompt =@"                 ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄        ▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄ 
                 ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌      ▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌
                 ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌     ▐░▌░▌   ▐░▐░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ 
                 ▐░▌          ▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌▐░▌ ▐░▌▐░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░▌          
@@ -34,34 +36,18 @@ string prompt =@"▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄�
                 ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌     ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ 
                 ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌      ▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌
                  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀        ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀";
-            string[] opcionesMenu = new string[] { "CARGAR DATOS", "VER CATEGORIAS", "VER USUARIOS", "VER COMENTARIOS", "VER EVENTOS", "VER INSCRIPCIONES", "NUMERO DE COMENTARIOS POR CATEGORIA", "NUMERO DE COMENTARIOS DE UN EVENTO", "NUMERO DE COMENTARIOS DE UN USUARIO", "VER COMENTARIOS DE UN USUARIO A ELEGIR", "VER COMENTARIOS DE UN EVENTO A ELEGIR", "AÑADIR COMENTARIO A UN EVENTO", "SALIR" };
-      
 
-         //   ConsoleKeyInfo teclaPresionada = Console.ReadKey();
+            string footer = @" ";
 
-            //if (teclaPresionada.Key == ConsoleKey.Enter)
-            //{
-            //    Console.WriteLine("Has presionado ENTER");
-            //}
-            //else if (teclaPresionada.Key == ConsoleKey.UpArrow)
-            //{
-            //    Console.WriteLine("Has presionado UP ARROW");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Has presionado otra tecla");
 
-            //}
-
-            //Console.WriteLine("Press any key to exit...");
-            //Console.ReadKey(true);
-
+            string[] opcionesMenu = new string[] { "CARGAR DATOS", "VER CATEGORIAS", "VER USUARIOS", "VER COMENTARIOS", "VER EVENTOS", "VER INSCRIPCIONES" +""
+                , "VER LOCALIZACIONES", "NUMERO DE COMENTARIOS POR CATEGORIA","NUMERO DE COMENTARIOS POR EVENTO","NUMERO DE COMENTARIOS POR USUARIO" ,"NUMERO DE COMENTARIOS DE UN EVENTO", "NUMERO DE COMENTARIOS DE UN USUARIO", "VER COMENTARIOS DE UN USUARIO A ELEGIR", "VER COMENTARIOS DE UN EVENTO A ELEGIR","VER VALORACIONES MEDIAS POR USUARIOS","VER VALORACIONES MEDIAS POR EVENTO", "AÑADIR COMENTARIO A UN EVENTO", "SALIR" };
 
 
             ApiContext conexionBD = new ApiContext();
 
 
-            //INSTANCIAMOS LOS GESTORES CON SU DEPENDENCIA DE CONEXION
+            ////INSTANCIAMOS LOS GESTORES CON SU DEPENDENCIA DE CONEXION
             GestionVista gestorVistas = new GestionVistaImpl();
             GestionArchivosLocales gestorArchivos = new GestionArchivosLocalesImpl();
             GestionUsuarios gestorUsuarios = new GestionUsuariosImpl(conexionBD);
@@ -69,58 +55,52 @@ string prompt =@"▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄�
             GestionCategorias gestorCategorias = new GestionCategoriasImpl(conexionBD);
             GestionComentarios gestorComentarios = new GestionComentariosImpl(conexionBD);
             GestionInscripciones gestorInscripciones = new GestionInscripcionesImpl(conexionBD);
+            GestionLocalizaciones gestorLocalizaciones = new GestionLocalizacionesImpl(conexionBD);
+            GestorMenus mainMenu = new GestorMenus(prompt, opcionesMenu, footer);
 
-            GestorMenus mainMenu = new GestorMenus(prompt, opcionesMenu);
 
 
-            string[] flameo = new string[] { "OPERACION NO PERMITIDA", "QUE NO PUEDES HACER ESO ", "PERO A TI QUE TE PASA, METE UN NUMERO", "METE UN NUMERO IMBECIL", "ESTAS PONIENDO A PRUEBA MI PACIENCIA...", "HARE COMO SI FUERAS RETRASADO Y VOLVERE A EMPEZAR..¿VALE?" };
-            int i = 0; // indice para array de flameo
+
             var bucle = true;
             //INICIAMOS LA APLICACION
-
-
             while (bucle)
             {
+                Console.Beep(700, 100);
                 int indiceSeleccionado = mainMenu.Run();
+                Console.Beep(600, 90);
                 ejecutarOpcion(indiceSeleccionado);
 
             }
-
-      
-
-
 
             Console.WriteAscii("HASTA LA VISTA");
 
             void ejecutarOpcion(int opcion)
             {
-                if (opcion > 12)
-                {
-                    Console.WriteLine("DE MOMENTO HAY TANTAS OPCIONES", Color.Red);
-                    Console.ReadLine();
-                    return;
-                }
+
                 switch (opcion)
                 {
-                    case 0: gestorArchivos.insertarDatos(); return;
-                    case 1: gestorVistas.mostrarCategorias(gestorCategorias.getCategorias()); return;
-                    case 2: gestorVistas.mostrarUsuarios(gestorUsuarios.getUsuarios()); return;
-                    case 3: gestorVistas.mostrarComentarios(gestorComentarios.getComentarios()); return;
-                    case 4: gestorVistas.mostrarEventos(gestorEventos.getEventos()); return;
-                    case 5: gestorVistas.mostrarInscripciones(gestorInscripciones.getInscripciones()); return;
-                    case 6: gestorVistas.mostrarNumComentariosPorCategoria(gestorComentarios.getNumComentariosPorCategoria()); return;
-                    case 7: gestorVistas.mostrarNumComentariosDeUnEvento(gestorComentarios.getNumComentariosDeUnEvento()); return;
-                    case 8: gestorVistas.mostrarNumComentariosDeUnUsuario(gestorComentarios.getNumComentariosDeUnUsuario()); return;
-                    case 9: gestorVistas.mostrarComentarios(gestorComentarios.getComentariosDeUnUsuario()); return;
-                    case 10: gestorVistas.mostrarComentarios(gestorComentarios.getComentariosDeUnEvento()); return;
-                    case 11: gestorComentarios.añadirComentario(); return;
-                    case 12: bucle = false; return;
 
+                    //case 0: gestorArchivos.insertarDatos(); return;  ACTUALIZAR LOS ARCHIVOS SQL A JSON, O CAMBIAR EL METODO PARA METER LOS DATOS
+                    case 1:  gestorVistas.mostrarCategorias(gestorCategorias.getCategorias()); return;
+                    case 2:  gestorVistas.mostrarUsuarios(gestorUsuarios.getUsuarios()); return;
+                    case 3:  gestorVistas.mostrarComentarios(gestorComentarios.getComentarios()); return;
+                    case 4:  gestorVistas.mostrarEventos(gestorEventos.getEventos()); return;
+                    case 5:  gestorVistas.mostrarInscripciones(gestorInscripciones.getInscripciones()); return;
+                    case 6:  gestorVistas.mostrarLocalizaciones(gestorLocalizaciones.getLocalizaciones()); return;
+                    case 7:  gestorVistas.mostrarNumComentariosPorCategoria(gestorComentarios.getNumComentariosPorCategoria()); return;
+                    case 8:  gestorVistas.mostrarNumComentariosPorEvento(gestorComentarios.getNumComentariosPorEvento()); return;
+                    case 9:  gestorVistas.mostrarNumComentariosPorUsuario(gestorComentarios.getNumComentariosPorUsuario()); return;
+                    case 10: gestorVistas.mostrarNumComentariosDeUnEvento(gestorComentarios.getNumComentariosDeUnEvento()); return;
+                    case 11: gestorVistas.mostrarNumComentariosDeUnUsuario(gestorComentarios.getNumComentariosDeUnUsuario()); return;
+                    case 12: gestorVistas.mostrarComentarios(gestorComentarios.getComentariosDeUnUsuario()); return;
+                    case 13: gestorVistas.mostrarComentarios(gestorComentarios.getComentariosDeUnEvento()); return;
+                    case 14: gestorVistas.mostrarValoracionMediaPorUsuario(gestorInscripciones.getValoracionMediaDeUsuariosAgrupados()); return;
+                    case 15: gestorVistas.mostrarValoracionMediaPorEvento(gestorInscripciones.getValoracionMediaDeEventosAgrupados()); return;
+                    case 16: gestorComentarios.añadirComentario(); return;
+                    case 17: bucle = false; return;
 
                 }
-
             }
-
         }
     }
 }

@@ -11,6 +11,9 @@ namespace MeteDatosEventos.Daos
     {
         Evento getEvento(string id);
         List<Evento> getEventos();
+        void saveEvento(Evento evento);
+        void deleteEvento(string id);
+        void updateEvento(Evento evento);
 
     }
 }

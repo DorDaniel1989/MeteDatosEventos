@@ -23,7 +23,6 @@ namespace MeteDatosEventos.FacadesImpl
             
         }
 
-        
         public List<Categoria> getCategorias()
         {
             return categoriaDao.getCategorias();

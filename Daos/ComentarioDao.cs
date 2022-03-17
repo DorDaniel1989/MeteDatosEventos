@@ -16,8 +16,12 @@ namespace MeteDatosEventos.Daos
         List<Comentario> getComentariosDeEvento();
         IEnumerable<dynamic> getNumComentariosPorCategoria();
         string getNumDeComentariosUsuario();
+        IEnumerable<dynamic> getNumDeComentariosUsuarioAgrupados();
         string getNumDeComentariosDeUnEvento();
+        IEnumerable<dynamic> getNumDeComentariosEventosAgrupados();
         void añadirComentario();
+        void deleteComentario(string comentarioId);
+        void updateComentario(string comentario);
         
     }
 }

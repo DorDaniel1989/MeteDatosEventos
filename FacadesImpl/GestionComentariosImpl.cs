@@ -55,5 +55,15 @@ namespace MeteDatosEventos.FacadesImpl
         {
             return comentarioDao.getNumComentariosPorCategoria();
         }
+
+        public IEnumerable<dynamic> getNumComentariosPorEvento()
+        {
+            return comentarioDao.getNumDeComentariosEventosAgrupados();
+        }
+
+        public IEnumerable<dynamic> getNumComentariosPorUsuario()
+        {
+            return comentarioDao.getNumDeComentariosUsuarioAgrupados();
+        }
     }
 }

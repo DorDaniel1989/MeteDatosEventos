@@ -14,11 +14,13 @@ namespace MeteDatosEventos.FacadesImpl
         private int IndiceSeleccionado;
         private string [] Opciones;
         private string Prompt ;
+        private string Footer;
       
-        public GestorMenus(string prompt,string[] opciones)
+        public GestorMenus(string prompt,string[] opciones, string footer)
         {
             Prompt = prompt;
             Opciones = opciones;
+            Footer = footer;
             IndiceSeleccionado = 0; 
 
         }
@@ -26,10 +28,12 @@ namespace MeteDatosEventos.FacadesImpl
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.BackgroundColor = ConsoleColor.Black;
+            Console.WriteLine("\n\n");
             Console.WriteLine(Prompt);
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine("\n\n");
+            Console.WriteLine(Footer);
+            Console.WriteLine("");
+
 
             for ( int i = 0; i <Opciones.Length; i++)
             {
@@ -51,6 +55,7 @@ namespace MeteDatosEventos.FacadesImpl
 
                 Console.WriteLine($"{prefix} {i+1} : {opcionActual} ");
             }
+          
 
         }
 
@@ -69,7 +74,8 @@ namespace MeteDatosEventos.FacadesImpl
                 if (teclaPresionada == ConsoleKey.UpArrow)
                 {
                     IndiceSeleccionado--;
-                    if(IndiceSeleccionado == -1)
+                    Console.Beep(frequency: 700, 100);
+                    if (IndiceSeleccionado == -1)
                     {
                         IndiceSeleccionado =0;
                     }
@@ -77,6 +83,7 @@ namespace MeteDatosEventos.FacadesImpl
                 else if (teclaPresionada == ConsoleKey.DownArrow)
                 {
                     IndiceSeleccionado++;
+                    Console.Beep(700, 100);
                     if (IndiceSeleccionado == Opciones.Length)
                     {
                         IndiceSeleccionado = Opciones.Length-1;
@@ -84,10 +91,8 @@ namespace MeteDatosEventos.FacadesImpl
                 }
 
             } while (teclaPresionada != ConsoleKey.Enter);
-
+            
             return IndiceSeleccionado;
         }
-
-
     }
 }

@@ -9,8 +9,12 @@ namespace MeteDatosEventos.Daos
 {
     interface UsuarioDao
     {
-        Usuario getUsuario(string id);
+       
         List<Usuario> getUsuarios();
+        Usuario getUsuario(string id);
+        void saveUsuario(Usuario usuario);
+        void deleteUsuario(string id);
+        void updateUsuario(Usuario usuario);
 
     }
 }

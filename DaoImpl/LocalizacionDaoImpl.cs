@@ -9,40 +9,33 @@ using System.Threading.Tasks;
 
 namespace MeteDatosEventos.DaoImpl
 {
-    class EventoDaoImpl : EventoDao
-    {
-        private List<Evento> eventos;
-        private Evento evento;
-        ApiContext conexionBD;
 
-        //Inyeccion de dependencia
-        public EventoDaoImpl(ApiContext conexionBD)
+    class LocalizacionDaoImpl : LocalizacionDao
+    {
+        ApiContext conexionBD;
+        List<Localizacion> localizaciones;
+        public LocalizacionDaoImpl(ApiContext conexionBD)
         {
             this.conexionBD = conexionBD;
-          
         }
 
-        public List<Evento> getEventos()
+        public List<Localizacion> getLocalizaciones()
         {
-            eventos = conexionBD.Eventos.ToList();
-            return eventos;
-        }
-        public Evento getEvento(string id)
-        {
-            throw new NotImplementedException();
+            localizaciones = conexionBD.Localizaciones.ToList();
+            return localizaciones; 
         }
 
-        public void saveEvento(Evento evento)
+        public void saveLocalizacion(Localizacion localizacion)
         {
             throw new NotImplementedException();
         }
 
-        public void deleteEvento(string id)
+        public void updateLocalizacion(string id)
         {
             throw new NotImplementedException();
         }
 
-        public void updateEvento(Evento evento)
+        public void deleteLocalizacion(string id)
         {
             throw new NotImplementedException();
         }
